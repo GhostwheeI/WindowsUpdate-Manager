@@ -1,4 +1,3 @@
-### `README.md`
 ```md
 # Windows Update Manager v2
 A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate** to make Windows Update management safer and easier: scan, install, hide/unhide, uninstall, export history, and run remote update jobs — with **sane defaults** and **audit-friendly logging**.
