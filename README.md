@@ -12,6 +12,12 @@ A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate
 
 2) First run will guide you through setup (module/dependency checks + preferences).
 
+## What's new in v3
+- **Visual Enhancements:** ASCII art titles with multiple styles (Standard, Slant, Cyberpunk)
+- **Vibrant UI:** Color gradients and 24-bit RGB support for PowerShell 7+
+- **Immersive Feedback:** Audio notifications and sound effects for key actions
+- **Improved Layout:** Responsive layout adapting to console size with professional borders
+
 ## What you can do
 - Scan for updates (Windows Update or Microsoft Update)
 - Install **all** or **selected** updates
