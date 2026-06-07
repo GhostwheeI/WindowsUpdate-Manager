@@ -1,0 +1,9 @@
+refactor(windows-update): v3 enhancements, fixes, and docs
+
+Combined all outstanding suggestions into a single update for v3 release.
+
+Changes:
+- Replaced all calls to `Pause` with the project's standard `Pause-UI` to preserve visual formatting.
+- Removed duplicate function definitions (`Read-YesNo`, `Ensure-MicrosoftUpdateService`, `Pause`) at the end of `WindowsUpdate-Manager.ps1`.
+- Removed the duplicate `Main` execution call at the end of the script.
+- Updated `README.md` and `USER_GUIDE.md` to reflect the v3 feature set (ASCII art, sound effects, 24-bit RGB) and normalized the script name to `WindowsUpdate-Manager.ps1`.

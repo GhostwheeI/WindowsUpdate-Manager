@@ -1,14 +1,14 @@
-# Windows Update Manager v2.0 - User Guide
+# Windows Update Manager v3.0 - User Guide
 
 **Author:** Ghostwheel
-**Version:** 2.0.0
+**Version:** 3.0.0
 **Created:** 2026-01-19
 
 ---
 
 ## Overview
 
-Windows Update Manager v2 is a professional, production-ready PowerShell script that provides comprehensive Windows Update management through an intuitive menu-driven interface. This enhanced version includes automatic dependency management, system safety features, and advanced configuration options.
+Windows Update Manager v3 is a professional, production-ready PowerShell script that provides comprehensive Windows Update management through an intuitive menu-driven interface. This enhanced version includes automatic dependency management, system safety features, and advanced configuration options.
 
 ---
 
@@ -21,12 +21,12 @@ Windows Update Manager v2 is a professional, production-ready PowerShell script 
 - ✅ **PowerShell 7.5+ installation** offering with clear benefits explanation
 - ✅ **Intelligent fallback** to Windows PowerShell 5.1 if user declines upgrade
 
-### Enhanced User Interface
-- 🎨 **Color-coded messages** (Info: Cyan, Success: Green, Warning: Yellow, Error: Red)
-- 📊 **Status indicators** (✓ Success, ✗ Error, ⚠ Warning, ℹ Info)
-- 📈 **Progress tracking** for long operations
-- 🖥️ **Professional banner** and menu system
-- 👁️ **Visual elevation indicator** (shows when running as Administrator)
+### Visual Experience
+- 🎨 **Color gradients and 24-bit RGB support** (PS7+)
+- 🎵 **Sound effects** for key actions
+- 🖼️ **ASCII art titles** with multiple styles (Standard, Slant, Cyberpunk)
+- 🖥️ **Responsive layout** that adapts to console size
+- 📊 **Enhanced box-drawing characters** for professional borders
 
 ### Safety Features
 - 🛡️ **Pre-flight system checks** (internet connectivity, disk space, service status)
@@ -77,7 +77,7 @@ Windows Update Manager v2 is a professional, production-ready PowerShell script 
 ### First Run
 
 1. **Right-click** the script and select "Run with PowerShell"
-   - Or open PowerShell and run: `.\WindowsUpdate-Manager_v2.ps1`
+   - Or open PowerShell and run: `.\WindowsUpdate-Manager.ps1`
 
 2. The script will:
    - Check for Administrator privileges and **elevate automatically**
@@ -270,7 +270,7 @@ Logs all errors with timestamps and exception details.
 ## 🔧 Command-Line Parameters
 
 ```powershell
-.\WindowsUpdate-Manager_v2.ps1 [parameters]
+.\WindowsUpdate-Manager.ps1 [parameters]
 ```
 
 ### Available Parameters
@@ -299,16 +299,16 @@ Logs all errors with timestamps and exception details.
 
 ```powershell
 # Run with default settings
-.\WindowsUpdate-Manager_v2.ps1
+.\WindowsUpdate-Manager.ps1
 
 # Run without elevation (already admin)
-.\WindowsUpdate-Manager_v2.ps1 -NoElevation
+.\WindowsUpdate-Manager.ps1 -NoElevation
 
 # Custom config and log paths
-.\WindowsUpdate-Manager_v2.ps1 -ConfigPath "C:\Config\wu.json" -LogPath "C:\Logs\wu.log"
+.\WindowsUpdate-Manager.ps1 -ConfigPath "C:\Config\wu.json" -LogPath "C:\Logs\wu.log"
 
 # Skip dependency checks (faster startup)
-.\WindowsUpdate-Manager_v2.ps1 -SkipDependencyCheck
+.\WindowsUpdate-Manager.ps1 -SkipDependencyCheck
 ```
 
 ---
@@ -437,23 +437,20 @@ Logs all errors with timestamps and exception details.
 
 ---
 
-## 🔄 Upgrade from v1
+## 🔄 Upgrade from v2
 
-If you're upgrading from the original script:
+If you're upgrading from a previous version:
 
-### What's New in v2
-- Automatic dependency management
-- Enhanced color-coded UI
-- Pre-flight system checks
-- System restore point creation
-- KB exclusion list
-- Compliance reporting
-- Improved error handling and logging
-- First-run configuration wizard
-- PowerShell 7.5+ installation option
+### What's New in v3
+- ASCII art titles with multiple styles (Standard, Slant, Cyberpunk)
+- Color gradients and 24-bit RGB support (PS7+)
+- Sound effects for key actions
+- Responsive layout that adapts to console size
+- Enhanced box-drawing characters for professional borders
+- Advanced status displays with visual indicators
 
 ### Configuration Migration
-- v2 will create a new config file
+- v3 will create a new config file
 - Old settings can be manually re-entered via Settings menu
 - No data loss - old config is not modified
 
@@ -467,7 +464,7 @@ If you're upgrading from the original script:
 - Review transcript logs if logging is enabled
 
 ### Documentation
-- Built-in help: `Get-Help .\WindowsUpdate-Manager_v2.ps1 -Full`
+- Built-in help: `Get-Help .\WindowsUpdate-Manager.ps1 -Full`
 - PSWindowsUpdate docs: https://www.powershellgallery.com/packages/PSWindowsUpdate
 
 ---
@@ -506,6 +503,6 @@ This script is provided "as-is" without warranty of any kind. Use at your own ri
 
 ---
 
-**Enjoy professional Windows Update management with WindowsUpdate-Manager v2!**
+**Enjoy professional Windows Update management with WindowsUpdate-Manager v3!**
 
 For questions or issues, please refer to the error logs or enable verbose mode for detailed diagnostics.

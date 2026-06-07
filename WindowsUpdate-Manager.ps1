@@ -1586,7 +1586,7 @@ function Action-ShowStatus {
         Write-ErrorLog $_
     }
 
-    Pause
+    Pause-UI
 }
 
 function Prompt-SearchFilters {
@@ -1674,7 +1674,7 @@ function Action-ScanUpdates {
     if ($mapped.Count -eq 0) {
       Write-Host ""
       Write-Success "No updates found. System is up to date!"
-      Pause
+      Pause-UI
       return
     }
 
@@ -1734,7 +1734,7 @@ function Action-ScanUpdates {
     Write-ErrorLog -Message "Update scan failed" -ErrorRecord $_
   } finally {
     Write-Progress -Activity "Scanning" -Completed
-    Pause
+    Pause-UI
   }
 }
 
@@ -1829,7 +1829,7 @@ function Action-InstallAll {
   $installCmd = Get-InstallCmd
   if (-not $installCmd) {
     Write-Err "Install-WindowsUpdate cmdlet not found. Try Update-WUModule or reinstall PSWindowsUpdate."
-    Pause
+    Pause-UI
     return
   }
 
@@ -1848,7 +1848,7 @@ function Action-InstallAll {
     Write-ErrorLog -Message "Install all failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-InstallSelected {
@@ -1857,7 +1857,7 @@ function Action-InstallSelected {
   if (-not $script:LastScan -or $script:LastScan.Count -eq 0) {
     Write-Warning "No cached scan results found."
     Write-Info "Please run 'Scan for updates' first (Option 2)."
-    Pause
+    Pause-UI
     return
   }
 
@@ -1865,7 +1865,7 @@ function Action-InstallSelected {
 
   if (-not $selected -or $selected.Count -eq 0) {
     Write-Info "No updates selected."
-    Pause
+    Pause-UI
     return
   }
 
@@ -1921,7 +1921,7 @@ function Action-InstallSelected {
     Write-ErrorLog -Message "Install selected failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Get-HideCmd {
@@ -1997,7 +1997,7 @@ function Action-HideSelected {
   if (-not $script:LastScan -or $script:LastScan.Count -eq 0) {
     Write-Warning "No cached scan results found."
     Write-Info "Please run 'Scan for updates' first (Option 2)."
-    Pause
+    Pause-UI
     return
   }
 
@@ -2005,7 +2005,7 @@ function Action-HideSelected {
 
   if (-not $selected -or $selected.Count -eq 0) {
     Write-Info "No updates selected."
-    Pause
+    Pause-UI
     return
   }
 
@@ -2044,7 +2044,7 @@ function Action-HideSelected {
     Write-ErrorLog -Message "Hide operation failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-UnhideByKB {
@@ -2055,7 +2055,7 @@ function Action-UnhideByKB {
 
   if ([string]::IsNullOrWhiteSpace($kb)) {
     Write-Warning "No KB entered."
-    Pause
+    Pause-UI
     return
   }
 
@@ -2093,7 +2093,7 @@ function Action-UnhideByKB {
     Write-ErrorLog -Message "Unhide operation failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-UninstallByKB {
@@ -2104,7 +2104,7 @@ function Action-UninstallByKB {
 
   if ([string]::IsNullOrWhiteSpace($kb)) {
     Write-Warning "No KB entered."
-    Pause
+    Pause-UI
     return
   }
 
@@ -2142,7 +2142,7 @@ function Action-UninstallByKB {
     Write-ErrorLog -Message "Uninstall operation failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-History {
@@ -2172,7 +2172,7 @@ function Action-History {
     if ($historyArray.Count -eq 0) {
       Write-Host ""
       Write-Info "No history entries found."
-      Pause
+      Pause-UI
       return
     }
 
@@ -2210,7 +2210,7 @@ function Action-History {
     Write-Info "Note: Some environments have long history. If it hangs, limit with a number."
   } finally {
     Write-Progress -Activity "History" -Completed
-    Pause
+    Pause-UI
   }
 }
 
@@ -2252,7 +2252,7 @@ function Action-ResetWUComponents {
     Write-ErrorLog -Message "Component reset failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-UpdateModule {
@@ -2288,7 +2288,7 @@ function Action-UpdateModule {
     Write-ErrorLog -Message "Module update failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-Targets {
@@ -2335,7 +2335,7 @@ function Action-Targets {
     Write-Info "Targeting local computer only."
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-Settings {
@@ -2429,7 +2429,7 @@ function Toggle-Transcript {
 
     $script:TranscriptOn = $false
     Write-Success "Logging disabled."
-    Pause
+    Pause-UI
     return
   }
 
@@ -2452,7 +2452,7 @@ function Toggle-Transcript {
     Write-ErrorLog -Message "Transcript start failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 function Manage-ExclusionList {
@@ -2547,7 +2547,7 @@ function Action-RemoteInstallJob {
 
   if ([string]::IsNullOrWhiteSpace($raw)) {
     Write-Warning "No targets specified."
-    Pause
+    Pause-UI
     return
   }
 
@@ -2613,7 +2613,7 @@ function Action-RemoteInstallJob {
     Write-Info "You can use Enable-WURemoting on remote computers."
   }
 
-  Pause
+  Pause-UI
 }
 
 function Action-ComplianceReport {
@@ -2702,7 +2702,7 @@ function Action-ComplianceReport {
     Write-ErrorLog -Message "Compliance report failed" -ErrorRecord $_
   }
 
-  Pause
+  Pause-UI
 }
 
 #endregion
@@ -2837,7 +2837,7 @@ function Main {
     if (-not (Initialize-Dependencies)) {
       Write-Err "Failed to initialize dependencies. Cannot continue."
       Write-Info "Error log: $($script:ErrorLogPath)"
-      Pause
+      Pause-UI
       exit 1
     }
 
@@ -2881,7 +2881,7 @@ function Main {
   } catch {
     Write-Err "Fatal error: $($_.Exception.Message)"
     Write-ErrorLog -Message "Fatal error" -ErrorRecord $_
-    Pause
+    Pause-UI
     exit 1
   } finally {
     # Cleanup
@@ -2901,46 +2901,8 @@ function Main {
 # Run main
 Main
 
-# Additional helper functions needed for v3
-
-function Read-YesNo {
-    param(
-        [Parameter(Mandatory)]
-        [string]$Prompt,
-        [switch]$DefaultYes
-    )
-    
-    if ($Silent) { return [bool]$DefaultYes }
-    
-    $suffix = if ($DefaultYes) { " [Y/n]" } else { " [y/N]" }
-    $answer = Read-Host ($Prompt + $suffix)
-    
-    if ([string]::IsNullOrWhiteSpace($answer)) {
-        return [bool]$DefaultYes
-    }
-    
-    return ($answer.Trim().ToLowerInvariant() -in @("y","yes"))
-}
-
-function Pause {
-    Write-Host ""
-    Write-Host "Press any key to continue..." -ForegroundColor Gray
-    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-}
-
-function Ensure-MicrosoftUpdateService {
-    if ($script:Config.UseMicrosoftUpdate) {
-        try {
-            Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
-        } catch {
-            # Silently continue if already registered
-        }
-    }
-}
 
 
 #endregion
 
-# Entry Point - Execute Main
-Main
 

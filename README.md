@@ -1,4 +1,4 @@
-# Windows Update Manager v2
+# Windows Update Manager v3
 
 A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate** to make Windows Update management safer and easier: scan, install, hide/unhide, uninstall, export history, and run remote update jobs — with **sane defaults** and **audit-friendly logging**.
 
@@ -7,7 +7,7 @@ A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate
 ## 30-second quick start
 1) Run PowerShell as Admin (the script can auto-elevate):
 ```powershell
-.\WindowsUpdate-Manager_v2.ps1
+.\WindowsUpdate-Manager.ps1
 ```
 
 2) First run will guide you through setup (module/dependency checks + preferences).
@@ -21,6 +21,14 @@ A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate
 - Generate a compliance report
 - Run remote installs via Invoke-WUJob (SYSTEM scheduled task)
 
+## What's new in v3
+- ASCII art titles with multiple styles (Standard, Slant, Cyberpunk)
+- 24-bit RGB color gradients (on PowerShell 7+)
+- Sound effects for key actions
+- Responsive layout that adapts to console size
+- Enhanced box-drawing characters for professional borders
+- Advanced status displays with visual indicators
+
 ## Who this is for
 - Sysadmins who want a repeatable update workflow
 - Helpdesk/junior staff who need guardrails (menus + confirmations)
@@ -28,7 +36,7 @@ A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate
 - Environments where update actions must be logged/auditable
 
 ## Documentation
-- Full user guide: **docs/USER_GUIDE.md**
+- Full user guide: **USER_GUIDE.md**
 
 ## Safety
 Windows Updates can reboot systems and remove updates. Test in non-production first. Use maintenance windows in server environments.
