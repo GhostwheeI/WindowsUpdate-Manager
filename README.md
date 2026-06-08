@@ -1,13 +1,15 @@
-# Windows Update Manager v2
+# Windows Update Manager v3
 
 A **production-ready, menu-driven PowerShell tool** that wraps **PSWindowsUpdate** to make Windows Update management safer and easier: scan, install, hide/unhide, uninstall, export history, and run remote update jobs — with **sane defaults** and **audit-friendly logging**.
+
+**New in v3:** Enjoy stunning visual enhancements, including ASCII art titles, 24-bit RGB color gradients support for PS7+, sound effects, and professional borders for an immersive update management experience.
 
 > ⭐ If this saved you time, starring the repo helps prioritize maintenance and improvements.
 
 ## 30-second quick start
 1) Run PowerShell as Admin (the script can auto-elevate):
 ```powershell
-.\WindowsUpdate-Manager_v2.ps1
+.\WindowsUpdate-Manager.ps1
 ```
 
 2) First run will guide you through setup (module/dependency checks + preferences).
