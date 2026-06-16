@@ -232,7 +232,27 @@ The script stores configuration in JSON format at:
   "TargetComputers": [],
   "CreateRestorePoint": true,
   "ExcludedKBs": [],
-  "AutoAcceptEULA": false
+  "AutoAcceptEULA": false,
+  "Visual": {
+    "AsciiArtStyle": "Cyberpunk",
+    "EnableAnimations": true,
+    "EnableSounds": false,
+    "AnimationSpeed": "Normal",
+    "ColorTheme": "Default",
+    "ShowTransitions": false,
+    "BorderStyle": "Double",
+    "ShowLiveDashboard": false,
+    "EnableGradients": true,
+    "PerformanceMode": false
+  },
+  "Sounds": {
+    "Startup": false,
+    "Success": false,
+    "Error": false,
+    "Warning": false,
+    "Complete": false,
+    "MenuClick": false
+  }
 }
 ```
 
@@ -244,6 +264,8 @@ The script stores configuration in JSON format at:
 - **CreateRestorePoint**: Create system restore point before updates
 - **ExcludedKBs**: Array of KB numbers to exclude (hidden updates)
 - **AutoAcceptEULA**: Automatically accept EULAs (use with caution)
+- **Visual**: Object controlling UI visuals, ASCII themes, box-drawing styles, and color gradients
+- **Sounds**: Object controlling audio feedback for script lifecycle events and interactions
 
 ---
 
@@ -437,9 +459,9 @@ Logs all errors with timestamps and exception details.
 
 ---
 
-## 🔄 Upgrade from v1
+## 🔄 Upgrade from v2
 
-If you're upgrading from the original script:
+If you're upgrading from the v2 script:
 
 ### What's New in v3
 - Automatic dependency management
@@ -451,11 +473,19 @@ If you're upgrading from the original script:
 - Improved error handling and logging
 - First-run configuration wizard
 - PowerShell 7.5+ installation option
+- ASCII art titles with multiple styles (Standard, Slant, Cyberpunk)
+- Color gradients and 24-bit RGB support (PS7+)
+- Sound effects for key actions
+- Responsive layout that adapts to console size
+- Enhanced box-drawing characters for professional borders
+- Advanced status displays with visual indicators
+- Visual settings configuration objects (animations, sounds, themes)
 
 ### Configuration Migration
-- v3 will create a new config file
-- Old settings can be manually re-entered via Settings menu
-- No data loss - old config is not modified
+- v3 will use your existing config file automatically
+- New visual options will be automatically seeded with default values
+- Old settings can be manually re-entered via Settings menu if needed
+- No data loss - old config properties are not modified
 
 ---
 
