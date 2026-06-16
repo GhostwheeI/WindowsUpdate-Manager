@@ -42,7 +42,7 @@
     - Customizable logging options
 
 .NOTES
-  File Name      : WindowsUpdate-Manager_v3.ps1
+  File Name      : WindowsUpdate-Manager.ps1
   Author         : Ghostwheel
   Version        : 3.0.0
   Created        : 2026-01-19
@@ -82,15 +82,15 @@
   Minimizes prompts for fully automated operation. Use with caution.
 
 .EXAMPLE
-  .\WindowsUpdate-Manager_v3.ps1
+  .\WindowsUpdate-Manager.ps1
   Runs the script with default settings and auto-elevation.
 
 .EXAMPLE
-  .\WindowsUpdate-Manager_v3.ps1 -NoElevation -ConfigPath "C:\Config\wu.json"
+  .\WindowsUpdate-Manager.ps1 -NoElevation -ConfigPath "C:\Config\wu.json"
   Runs without elevation using a custom configuration file path.
 
 .EXAMPLE
-  .\WindowsUpdate-Manager_v3.ps1 -LogPath "C:\Logs\WU.log"
+  .\WindowsUpdate-Manager.ps1 -LogPath "C:\Logs\WU.log"
   Runs with logging enabled to a specific path.
 #>
 
